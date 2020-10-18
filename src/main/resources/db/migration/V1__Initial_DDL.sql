@@ -1,0 +1,1 @@
+CREATE TABLE movie_nomination (id INT AUTO_INCREMENT, year INT, title VARCHAR(255), studios VARCHAR(255), producers VARCHAR(255), winner BOOLEAN);

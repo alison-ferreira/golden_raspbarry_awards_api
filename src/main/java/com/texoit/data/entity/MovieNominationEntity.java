@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,13 +16,14 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
+@Table(name = "movie_nomination")
 public class MovieNominationEntity {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
-	private int Year;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	private Integer id;
+	private Integer year;
 	private String title;
 	private String studios;
 	private String producers;
-	private boolean winner;
+	private Boolean winner;
 }

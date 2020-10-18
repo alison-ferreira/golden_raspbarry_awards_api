@@ -17,11 +17,8 @@ public class WorstMoviesController {
 	MovieNominationRepository repo;
 
 	@GetMapping(path = "/min-and-max-awards-intervals", produces = MediaType.APPLICATION_JSON_VALUE)
-	public MovieNominationEntity getWorstMoviesByMinAndMaxIntervals() {
-		MovieNominationEntity entity = new MovieNominationEntity();
-		entity.setYear(2010);
-		entity = repo.save(entity);
-		return entity;
+	public Iterable<MovieNominationEntity> getWorstMoviesByMinAndMaxIntervals() {
+		return repo.findAll();
 	}
 	
 }

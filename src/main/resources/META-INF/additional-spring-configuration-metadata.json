@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "move-nomination.csv.filename",
+    "type": "java.lang.String",
+    "description": "The file name of the CSV file including the final extension."
+  },
+  {
+    "name": "movie-nomination.csv.year",
+    "type": "java.lang.String",
+    "description": "The CSV identifier column for Year."
+  },
+  {
+    "name": "movie-nomination.csv.title",
+    "type": "java.lang.String",
+    "description": "The CSV identifier column for Title."
+  },
+  {
+    "name": "movie-nomination.csv.studios",
+    "type": "java.lang.String",
+    "description": "The CSV identifier column for Studios."
+  },
+  {
+    "name": "movie-nomination.csv.producers",
+    "type": "java.lang.String",
+    "description": "The CSV identifier column for Producers."
+  },
+  {
+    "name": "movie-nomination.csv.winner",
+    "type": "java.lang.String",
+    "description": "The CSV identifier column for Winner."
+  }
+]}
