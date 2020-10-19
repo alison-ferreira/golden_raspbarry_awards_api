@@ -9,11 +9,9 @@ import org.flywaydb.core.api.migration.BaseJavaMigration;
 import org.flywaydb.core.api.migration.Context;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Configuration;
 
 import com.texoit.vo.MovieNominationVO;
 
-@Configuration
 public class V2__CSV_Unload extends BaseJavaMigration {
 	
 	private static Logger log = LoggerFactory.getLogger(V2__CSV_Unload.class);
@@ -26,6 +24,7 @@ public class V2__CSV_Unload extends BaseJavaMigration {
 	private static final String CSV_MOVIE_NOMINATION_WINNER = "winner";
 	private static final String CSV_TRUE_VALUE = "yes";
 	private static final char CSV_DELIMITER = ';';
+	private static final int CSV_HEADER_LINES = 1;
 	
 	private static final String INSERT_MOVIE_NOMINATION = "INSERT INTO movie_nomination (year, title, studios, producers, winner) VALUES (?, ?, ?, ?, ?)";
 	private static final String FINAL_MESSAGE = "CSV migration finished with %d/%d rows migrated.";
@@ -56,7 +55,7 @@ public class V2__CSV_Unload extends BaseJavaMigration {
             	ps.executeUpdate();
         		csvMigratedRows++;
             } catch (Exception e) {
-				log.warn(String.format("%s: %s. In the CSV file line: %d.", e.getClass(), e.getMessage(), (csvCountRows + 1)));
+				log.warn(String.format("%s: %s. In the CSV file line: %d.", e.getClass(), e.getMessage(), (csvCountRows + CSV_HEADER_LINES)));
 			}
 		}
 		

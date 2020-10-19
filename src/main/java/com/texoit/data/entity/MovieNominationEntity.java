@@ -18,7 +18,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "movie_nomination")
-@NamedNativeQuery(name = "MovieNomination.listWorstProducersWinners", resultClass = WorstProducersWinnersEntity.class, 
+@NamedNativeQuery(name = "MovieNomination.getWorstProducersWinners", resultClass = WorstProducersWinnersEntity.class, 
 	query = "SELECT producer.names, first.year first, last.year last, last.year - first.year distance "
 			+ "FROM (SELECT DISTINCT producers names FROM movie_nomination WHERE winner = true) producer "
 			+ "JOIN (SELECT producers names, MIN(year) year FROM movie_nomination WHERE winner = true GROUP BY producers) first ON first.names = producer.names "
