@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -17,6 +18,11 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "movie_nomination")
+@NamedNativeQuery(name = "MovieNomination.listWorstProducersWinners", resultClass = WorstProducersWinnersEntity.class, 
+	query = "SELECT producer.names, first.year first, last.year last, last.year - first.year distance "
+			+ "FROM (SELECT DISTINCT producers names FROM movie_nomination WHERE winner = true) producer "
+			+ "JOIN (SELECT producers names, MIN(year) year FROM movie_nomination WHERE winner = true GROUP BY producers) first ON first.names = producer.names "
+			+ "JOIN (SELECT producers names, MAX(year) year FROM movie_nomination WHERE winner = true GROUP BY producers) last ON last.names = producer.names")
 public class MovieNominationEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
