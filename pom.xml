@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.texoit</groupId>
 	<artifactId>golden-raspberry-awards</artifactId>
-	<version>1.0.RELEASE</version>
+	<version>0.1-SNAPSHOT</version>
 	<name>Golden Raspberry Awards</name>
 	<description>Golden Raspberry Awards</description>
 
